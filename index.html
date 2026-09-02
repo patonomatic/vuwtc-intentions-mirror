@@ -9,10 +9,7 @@
 <html lang="en">
 <!--<![endif]-->
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"><script>
-                // Neutralize alert popups from failed cross-origin background updates (like timezone API)
                 window.alert = function() { console.log('Suppressed alert:', arguments); };
-                
-                // Catch unhandled AJAX/Promise rejections preventing error modals
                 window.addEventListener('unhandledrejection', function(event) {
                     event.preventDefault();
                 });
@@ -23,7 +20,7 @@
 <link href="https://www.vuwtc.org.nz/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
 <!-- fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,300italic,400italic|Glegoo:700,400&amp;display=swap" rel="stylesheet" type="text/css"/>
-<link as="font" crossorigin="anonymous" href="https://www.vuwtc.org.nz/fonts/trip-planner-icons.woff?1.04" rel="preload" type="font/woff"/>
+
 <!-- css -->
 <link href="https://www.vuwtc.org.nz/CSS/TripPlanner?v=8z3gR5u9nMT7ZMq_UnezIpG079szA_hIuTdE5a8ahvc1" rel="stylesheet"/>
 <link href="https://www.vuwtc.org.nz/CSS/TripPlannerPrint?v=Tc5AaRQkx3twe_AHSlNrVDSUj-GCBKIXvU_D9zHECic1" media="print" rel="stylesheet" type="text/css"/>
@@ -52,12 +49,16 @@
     </script>
 <meta content="FpeogPcYZhUuaGhvJ_4-yQiSTPMtpB2RqjeeCQfFqf4" name="google-site-verification"/>
 <style>
-                #email-list-subscribe-section { display: none !important; }
-                
-                /* Override font-family fallback icons if cross-origin font load is blocked */
                 @font-face {
-                    font-family: 'trip-planner-icons';
-                    src: url('https://www.vuwtc.org.nz/fonts/trip-planner-icons.woff?1.04') format('woff');
+                    font-family: 'trip-planner-icons' !important;
+                    src: url('./trip-planner-icons.woff') format('woff') !important;
+                    font-weight: normal;
+                    font-style: normal;
+                }
+                #error-modal, .modal-backdrop {
+                    display: none !important;
+                    opacity: 0 !important;
+                    visibility: hidden !important;
                 }
             </style></head>
 <body class="" data-base="https://www.vuwtc.org.nz/" data-url="/trips/intentions" id="top">
