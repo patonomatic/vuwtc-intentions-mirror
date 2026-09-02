@@ -15,7 +15,10 @@ jobs:
     permissions:
       contents: write
 
-    steps:
+    steps:    
+      - name: Check out repo
+        uses: actions/checkout@v4
+        
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -29,17 +32,6 @@ jobs:
       - name: Fetch Intentions Page
         run: python fetch_intentions.py
         
-      - name: Check out repo
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Fetch Intentions Page
-        run: python fetch_intentions.py
-
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
