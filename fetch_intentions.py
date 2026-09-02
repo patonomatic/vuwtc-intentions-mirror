@@ -36,6 +36,10 @@ def scrape():
             # Inject CSS for local font & display rules
             custom_style = soup.new_tag('style')
             custom_style.string = """
+                body.modal-open {
+                    overflow: auto !important;
+                    padding-right: 0 !important;
+                }
                 @font-face {
                     font-family: 'trip-planner-icons' !important;
                     src: url('./trip-planner-icons.woff') format('woff') !important;
